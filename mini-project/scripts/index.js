@@ -9,15 +9,6 @@ let cities = [
   { name: "Detroit, MI", latitude: 42.331429, longitude: -83.045753, id: 4 },
 ];
 
-function loadCityDropdown(cities) {
-  for (const city of cities) {
-    var option = new Option(option);
-    option.value = city.name;
-    option.innerText = city.name;
-    cityDropdown.appendChild(option);
-  }
-}
-
 function listCities() {
   for (const city of cities) {
     let option = new Option(city.name);
@@ -25,19 +16,26 @@ function listCities() {
   }
 }
 
-function displayCityTable(city) {
-  cityTableBody.innerHTML = "";
-  let row = cityTableBody.insertRow();
-  let nameCell = row.insertCell();
-  nameCell.innerText = city.name;
-  let idCell = row.insertCell();
-  idCell.innerText = city.id;
-  let latitudeCell = row.insertCell();
-  latitudeCell.innerText = city.latitude;
-  let longitudeCell = row.insertCell();
-  longitudeCell.innerText = city.longitude;
+function displayCityTable(cities) {
+  for (const city of cities) {
+    let tr = cityTableBody.insertRow();
+    let td1 = tr.insertCell();
+    td1.innerText = city.name;
+    let td2 = tr.insertCell();
+    td2.innerText = city.id();
+    let td3 = tr.insertCell();
+    td3.innerText = city.latitude();
+    let td4 = tr.insertCell();
+    td4.innerText = city.longitude;
+  }
 }
 
-
+// async function loadCity() {
+//   let response = await fetch("http://jsonplaceholder.typicode.com/users/1");
+//   let data = await response.json();
+//   console.log(data);
+//   displayCityTable(data)
+// }
 
 listCities();
+displayCityTable(cities);

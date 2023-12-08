@@ -1,7 +1,4 @@
 "use strict";
-const idTextbox = document.querySelector("#idTextbox");
-const displayButton = document.querySelector("#displayButton");
-const messageParagraph = document.querySelector("#messageParagraph");
 const userInfoTableBody = document.querySelector("#userInfoTableBody");
 function displayToDo() {
  
